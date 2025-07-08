@@ -6,11 +6,11 @@ function App() {
   const [selectedEnv, setSelectedEnv] = useState("");
   const [hosts, setHosts] = useState([]);
   const [error, setError] = useState("");
-  const API_BASE = process.env.REACT_APP_BACKEND_URL || "/";
+  const API_BASE = process.env.REACT_APP_BACKEND_URL || "";
 
   // Fetch environments on load
   useEffect(() => {
-    fetch("${API_BASE}/api/environments")
+    fetch(`${API_BASE}/api/environments`)
       .then(res => res.json())
       .then(setEnvs)
       .catch(err => setError("Error loading environments: " + err.message));
