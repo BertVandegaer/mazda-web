@@ -1,0 +1,12 @@
+[
+  {
+    "environment": "prod",
+    "url": "https://bkx66817.live.dynatrace.com",
+    "token": "dt0c01.H5VOETJFWOV6VJB3CX67LDJ4.PNLSRQBRIVZFKOSGSJ74DVGMGPTYXTOF2LBN54Z46PFBPJRUD4EKIXX4JTXN24PS"
+  },
+  {
+    "environment": "dev",
+    "url": "https://plv55893.live.dynatrace.com",
+    "token": "dt0c01.JGIOHHSCOMF5TGS4D4YTMXT2.U7N6CAJ4ARFJUG66OBKCLU3TZ3XW7ZKFQJ4JRC6MDKASEKN3I7SBMO2ITDWPW6B5"
+  }
+]

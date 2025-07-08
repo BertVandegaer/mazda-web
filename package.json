@@ -1,0 +1,15 @@
+{
+  "name": "dynatrace-maintenance-webapp",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "install-all": "npm install --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}

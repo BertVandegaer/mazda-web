@@ -1,0 +1,12 @@
+[
+  {
+    "environment": "prod",
+    "url": "https://your-prod.live.dynatrace.com",
+    "token": "YOUR_PROD_API_TOKEN"
+  },
+  {
+    "environment": "dev",
+    "url": "https://your-dev.live.dynatrace.com",
+    "token": "YOUR_DEV_API_TOKEN"
+  }
+]
