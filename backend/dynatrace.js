@@ -110,6 +110,7 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
         }
       ]
     }
+  };
 
   console.log(`[INFO] Creating maintenance window for host ${hostname} in ${environment}`);
   console.log(`[INFO] Payload:`, JSON.stringify(payload, null, 2));
