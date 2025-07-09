@@ -81,6 +81,36 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
     ]
   };
 
+  const mwload = {
+    value: {
+      enabled: true,
+      generalProperties: {
+        name: `${hostname}`,
+        description: null,
+        maintenanceType: "PLANNED",
+        suppression: "DETECT_PROBLEMS_DONT_ALERT",
+        disableSyntheticMonitorExecution: true
+      },
+      schedule:{
+        scheduleType: "ONCE",
+        onceRecurrence:{
+          startTime: startTime,
+          endTime: endTime,
+          timeZone: "Europe/Brussels"
+        }
+      },
+      filters:[
+        {
+          entityType:null,
+          entityId:null,
+          entityTags:[
+            `Host:${hostname}`
+          ],
+          managementZones:[]
+        }
+      ]
+    }
+
   console.log(`[INFO] Creating maintenance window for host ${hostname} in ${environment}`);
   console.log(`[INFO] Payload:`, JSON.stringify(payload, null, 2));
 
