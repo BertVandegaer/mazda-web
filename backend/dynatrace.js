@@ -107,7 +107,7 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
         "entityType": null,
         "entityId": null,
         "entityTags": [
-          "Host:${hostname}"
+          "Host": `${hostname}`
         ],
         "managementZones": []
       }
