@@ -81,39 +81,39 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
     ]
   };
 
-  const mwload =   {
-  "schemaId": "builtin:alerting.maintenance-window",
-  "schemaVersion": "2.15",
-  "scope": "environment",
-  "value": {
-    "enabled": true,
-    "generalProperties": {
-      "name": `${hostname}`,
-      "description": null,
-      "maintenanceType": "PLANNED",
-      "suppression": "DETECT_PROBLEMS_DONT_ALERT",
-      "disableSyntheticMonitorExecution": true
-    },
-    "schedule": {
-      "scheduleType": "ONCE",
-      "onceRecurrence": {
-        "startTime": startTime,
-        "endTime": endTime,
-        "timeZone": "Europe/Brussels"
-      }
-    },
-    "filters": [
-      {
-        "entityType": null,
-        "entityId": null,
-        "entityTags": [
-         `Host:${hostname}`
-        ],
-        "managementZones": []
-      }
-    ]
-  }
-};
+  const mwload = [{
+    "schemaId": "builtin:alerting.maintenance-window",
+    "schemaVersion": "2.15",
+    "scope": "environment",
+    "value": {
+      "enabled": true,
+      "generalProperties": {
+        "name": `${hostname}`,
+        "description": null,
+        "maintenanceType": "PLANNED",
+        "suppression": "DETECT_PROBLEMS_DONT_ALERT",
+        "disableSyntheticMonitorExecution": true
+      },
+      "schedule": {
+        "scheduleType": "ONCE",
+        "onceRecurrence": {
+          "startTime": startTime,
+          "endTime": endTime,
+          "timeZone": "Europe/Brussels"
+        }
+      },
+      "filters": [
+        {
+          "entityType": null,
+          "entityId": null,
+          "entityTags": [
+            `Host:${hostname}`
+          ],
+          "managementZones": []
+        }
+      ]
+    }
+  }];
 
 
 
