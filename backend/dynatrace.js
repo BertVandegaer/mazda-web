@@ -113,7 +113,7 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
   };
 
   console.log(`[INFO] Creating maintenance window for host ${hostname} in ${environment}`);
-  console.log(`[INFO] Payload:`, JSON.stringify(payload, null, 2));
+  console.log(`[INFO] mwload:`, JSON.stringify(mwload, null, 2));
 
   // Uncomment for real Dynatrace API call
   /*
@@ -124,7 +124,7 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
       "Authorization": `Api-Token ${env.token}`,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(mwload)
   });
   const result = await response.json();
   if (!response.ok) {
@@ -142,7 +142,7 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
   return {
     status: "ok",
     message: `Maintenance window would be created for host ${hostname} in ${environment}`,
-    debugPayload: payload
+    debugPayload: mwload
   };
 }
 
