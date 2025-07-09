@@ -82,6 +82,9 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
   };
 
   const mwload = {
+    schemaId: "builtin:alerting.maintenance-window",
+    schemaVersion: "2.15",
+    scope: "environment",
     value: {
       enabled: true,
       generalProperties: {
@@ -116,13 +119,14 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
   console.log(`[INFO] mwload:`, JSON.stringify(mwload, null, 2));
 
   // Uncomment for real Dynatrace API call
-  /*
-  const apiUrl = `${env.url}/api/v2/maintenanceWindows`;
+  
+  const apiUrl = `${env.url}/api/v2/settings/objects?validateOnly=false&adminAccess=false`;
   const response = await fetch(apiUrl, {
     method: "POST",
     headers: {
+      "Accept": "application/json; charset=utf-8",
       "Authorization": `Api-Token ${env.token}`,
-      "Content-Type": "application/json"
+      "Content-Type": "application/json; charset=utf-8"
     },
     body: JSON.stringify(mwload)
   });
@@ -136,7 +140,7 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
     message: "Maintenance window created",
     dynatraceResponse: result
   };
-  */
+  
 
   // Mock response for testing
   return {
