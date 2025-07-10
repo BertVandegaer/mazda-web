@@ -47,8 +47,22 @@ function App() {
             ))}
           </select>
         </label>
+                <label>
+          Fill API token:{" "}
+          <select
+            value={selectedToken}
+            onChange={e => selectedToken(e.target.value)}
+          >
+            <option value="">-- Select --</option>
+            {envs.map(e => (
+              <option key={e.token} value={e.token}>
+                {e.token}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
-      {selectedEnv && <HostTable hosts={hosts} />}
+      {selectedEnv && selectedToken && <HostTable hosts={hosts} />}
     </div>
   );
 }
