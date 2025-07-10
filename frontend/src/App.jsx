@@ -4,6 +4,7 @@ import HostTable from "./HostTable";
 function App() {
   const [envs, setEnvs] = useState([]);
   const [selectedEnv, setSelectedEnv] = useState("");
+  const [selectedToken, setSelectedToken] = useState("");
   const [hosts, setHosts] = useState([]);
   const [error, setError] = useState("");
   const API_BASE = process.env.REACT_APP_BACKEND_URL || "";
@@ -51,7 +52,7 @@ function App() {
           Fill API token:{" "}
           <select
             value={selectedToken}
-            onChange={e => selectedToken(e.target.value)}
+            onChange={e => setSelectedToken(e.target.value)}
           >
             <option value="">-- Select --</option>
             {envs.map(e => (
