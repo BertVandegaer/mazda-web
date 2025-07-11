@@ -64,23 +64,6 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
     throw new Error(`Could not find entityId for host: ${hostname}`);
   }
 
-  const payload = {
-    name: patchLabel || `Patch window for ${hostname}`,
-    description: `Automated maintenance window for host ${hostname}`,
-    type: "PLANNED",
-    suppression: "DETECT_PROBLEMS_AND_ALERT",
-    schedule: {
-      type: "ONCE",
-      startTime: startTime,
-      endTime: endTime
-    },
-    scope: [
-      {
-        entities: [entityId]
-      }
-    ]
-  };
-
   const mwload = [{
     "schemaId": "builtin:alerting.maintenance-window",
     "schemaVersion": "2.15",
@@ -89,7 +72,7 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
       "enabled": true,
       "generalProperties": {
         "name": `${hostname}`,
-        "description": null,
+        "description": `${patchLabel}`,
         "maintenanceType": "PLANNED",
         "suppression": "DETECT_PROBLEMS_DONT_ALERT",
         "disableSyntheticMonitorExecution": true
