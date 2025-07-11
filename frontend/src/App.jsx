@@ -4,6 +4,7 @@ import HostTable from "./HostTable";
 function App() {
   const [envs, setEnvs] = useState([]);
   const [selectedEnv, setSelectedEnv] = useState("");
+  const [token, setToken] = useState(""); // ⬅️ This was missing
   const [hosts, setHosts] = useState([]);
   const [error, setError] = useState("");
   const API_BASE = process.env.REACT_APP_BACKEND_URL || "";
