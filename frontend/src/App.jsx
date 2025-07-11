@@ -32,15 +32,27 @@ function App() {
     <div style={{padding: 24}}>
       <h1>Dynatrace Maintenance Manager</h1>
       {error && <div style={{color: "red", marginBottom: 16}}>{error}</div>}
+      <div style={{ marginBottom: 16 }}>
+        <label>
+          Enter Token (required for creating MW):{" "}
+          <input
+            type="password"
+            value={token}
+            onChange={(e) => setToken(e.target.value)}
+            placeholder="Enter your token"
+            style={{ marginLeft: 8 }}
+          />
+        </label>
+      </div>
       <div>
         <label>
           Select environment:{" "}
           <select
             value={selectedEnv}
-            onChange={e => setSelectedEnv(e.target.value)}
+            onChange={(e) => setSelectedEnv(e.target.value)}
           >
             <option value="">-- Select --</option>
-            {envs.map(e => (
+            {envs.map((e) => (
               <option key={e.environment} value={e.environment}>
                 {e.environment}
               </option>
@@ -48,7 +60,9 @@ function App() {
           </select>
         </label>
       </div>
-      {selectedEnv && <HostTable hosts={hosts} />}
+
+      {/* 🧩 HostTable with token passed as prop */}
+      {selectedEnv && <HostTable hosts={hosts} token={token} />}
     </div>
   );
 }

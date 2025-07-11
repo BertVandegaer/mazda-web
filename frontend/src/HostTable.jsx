@@ -16,7 +16,7 @@ const defaultRow = (hosts = []) => ({
   actionStatus: "",
 });
 
-function HostTable({ hosts }) {
+function HostTable({ hosts, token }) {
   const [rows, setRows] = useState([]);
   const API_BASE = process.env.REACT_APP_BACKEND_URL || "";
 
@@ -44,6 +44,7 @@ function HostTable({ hosts }) {
       startTime: row.patchStart,
       endTime: row.patchEnd,
       environment: row.environment,
+      apitoken: token
     };
     const res = await fetch(`${API_BASE}/api/maintenance`, {
       method: "POST",

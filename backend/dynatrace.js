@@ -45,7 +45,7 @@ async function fetchAllHosts() {
   return all.flat();
 }
 
-async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTime, environment }) {
+async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTime, environment, apitoken }) {
   const config = getConfig();
   const env = config.find(e => e.environment === environment);
   if (!env) throw new Error('Environment not found in config');
@@ -127,7 +127,7 @@ async function createMaintenanceWindow({ hostname, patchLabel, startTime, endTim
     method: "POST",
     headers: {
       "Accept": "application/json; charset=utf-8",
-      "Authorization": `Api-Token ${env.token}`,
+      "Authorization": `Api-Token ${apitoken}`,
       "Content-Type": "application/json; charset=utf-8"
     },
     body: JSON.stringify(mwload)
